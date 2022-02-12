@@ -16,13 +16,13 @@ class Movies extends Component {
     // object destructuring.
     const { length } = this.state.movies;
 
-    if (length === 0)  
+    if (length === 0)
       return (
         <div className="badge badge-pill bg-warning">
           There are currently no movies in your list
         </div>
       );
-    return ( 
+    return (
       <div className="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <p className="badge badge-pill bg-primary">
