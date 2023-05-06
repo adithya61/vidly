@@ -4,7 +4,6 @@ const Genre = (props) => {
   const { allGenre, currentGenre, textProperty, valueProperty, onGenreChange } =
     props;
 
-
   return (
     <ul className="list-group">
       {allGenre.map((genre) => (
@@ -26,8 +25,8 @@ const Genre = (props) => {
 };
 
 Genre.defaultProps = {
-    textProperty: 'name',
-    valueProperty: '_id'
+  textProperty: "name",
+  valueProperty: "_id",
 };
 
 export default Genre;

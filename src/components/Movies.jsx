@@ -10,9 +10,7 @@ import { filterGenre } from "../utils/filterGenre";
 import { getGenres } from "../services/fakeGenreService";
 import MoviesTable from "./moviesTable";
 import _ from "lodash";
-import Customers from "./Customers";
-import Rentals from "./Rentals";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 class Movies extends Component {
   state = {
@@ -38,7 +36,13 @@ class Movies extends Component {
 
   handleDelete = (id) => {
     const movies = this.state.movies.filter((movie) => movie._id !== id);
+    var { currentPage, pageSize } = this.state;
     this.setState({ movies });
+
+    if (movies.length <= pageSize * (currentPage - 1)) {
+      currentPage = currentPage - 1;
+      this.setState({ currentPage });
+    }
   };
 
   handlePageChange = (page) => {
@@ -84,17 +88,30 @@ class Movies extends Component {
     nav("/movies/new");
   };
 
+  handleSearch = ({ currentTarget: input }) => {
+    const movies = getMovies();
+    this.setState({ currentGenre: "All" });
+
+    const filteredMovies = Object.values(movies).filter((movie) =>
+      movie.title.toLowerCase().includes(input.value.toLowerCase())
+    );
+
+    this.setState({ movies: filteredMovies });
+    this.setState({ currentPage: 1 });
+  };
+
+  // Render method
   render() {
     const { currentPage, pageSize, sortColumn, currentGenre } = this.state;
 
     const { totalCount: length, filteredData: movies } = this.getPageData();
-
-    if (length === 0)
-      return (
-        <div className="badge badge-pill bg-warning">
-          There are currently no movies in your list
-        </div>
-      );
+    // Becomes redundant after implementing search feature.
+    // if (length === 0)
+    //   return (
+    //     <div className="badge badge-pill bg-warning">
+    //       There are currently no movies in your list
+    //     </div>
+    //   );
 
     return (
       <div className="container">
@@ -113,11 +130,24 @@ class Movies extends Component {
               onGenreChange={this.handleGenreChange}
             />
           </div>
+
+          {/* Next column Movies */}
           <div className="col">
-            <button className="btn btn-primary mb-4" onClick={this.addNewMovie}>
+            <button className="btn btn-primary " onClick={this.addNewMovie}>
               {" "}
               New Movie +
             </button>
+
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search"
+                aria-label="Search"
+                onChange={this.handleSearch}
+                aria-describedby="basic-addon2"
+              />
+            </div>
             <MoviesTable
               movies={movies}
               sortColumn={sortColumn}
