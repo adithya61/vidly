@@ -1,14 +1,16 @@
 import Joi from "joi-browser";
 import React, { Component } from "react";
 import Input from "./input";
-import Dropdown from "react-bootstrap/Dropdown";
+import { getGenres } from "../../services/movieService";
 
 class Form extends Component {
   state = {
     data: {},
     errors: {},
+    genres: [],
   };
 
+  // handleChange -> validateProperty -> validate.
   handleChange = ({ currentTarget: input }) => {
     if (!input) return;
     const errors = { ...this.state.errors };
@@ -30,7 +32,7 @@ class Form extends Component {
 
     const result = Joi.validate(this.state.data, this.schema, options);
 
-    if (!result.error) return null;
+    if (!result.error) return;
 
     for (let item of result.error.details) errors[item.path[0]] = item.message;
 
@@ -57,7 +59,7 @@ class Form extends Component {
     this.setState({ errors: errors || {} });
     if (errors) return;
 
-    this.doSubmit(this.props.nav, this.state.data);
+    this.doSubmit(this.props.nav);
   };
 
   renderButton(label) {
@@ -82,14 +84,22 @@ class Form extends Component {
   }
 
   renderDropDown(name, label) {
+    const genres = this.state.genres;
+    const filteredGenre = genres.filter(
+      (genre) => genre.name !== this.state.data[name]
+    );
     return (
       <div>
         <label htmlFor={name}>{label}</label>
         <select onChange={this.handleChange} name={name} id={label}>
-          <option value={this.state.data[name]}>{this.state.data[name]}</option>
-          <option value="Action">Action</option>
-          <option value="Thriller">Thriller</option>
-          <option value="Comedy">Comedy</option>
+          <option key="default" value={this.state.data[name]}>
+            {this.state.data[name]}
+          </option>
+          {filteredGenre.map((genre) => (
+            <option key={genre._id} value={genre.name}>
+              {genre.name}
+            </option>
+          ))}
         </select>
       </div>
     );

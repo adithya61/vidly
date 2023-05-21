@@ -2,28 +2,31 @@
 Import Statements.
  */
 import React, { Component } from "react";
-import { getMovies } from "../services/fakeMovieService";
+import { getMovies, getGenres, deleteMovie } from "../services/movieService";
 import Pagination from "./common/Pagination";
 import { paginate } from "../utils/paginate";
 import Genre from "./common/Genre";
 import { filterGenre } from "../utils/filterGenre";
-import { getGenres } from "../services/fakeGenreService";
 import MoviesTable from "./moviesTable";
 import _ from "lodash";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 class Movies extends Component {
   state = {
     movies: [],
     genres: [],
-    currentGenre: "All",
+    currentGenre: "All Genres",
     currentPage: 1,
     pageSize: 10,
     sortColumn: { path: "title", order: "asc" },
   };
 
-  componentDidMount() {
-    this.setState({ movies: getMovies(), genres: getGenres() });
+  async componentDidMount() {
+    const genres = [{ name: "All Genres" }, ...(await getGenres())];
+
+    this.setState({ movies: await getMovies(), genres });
   }
 
   handleLike = (movie) => {
@@ -34,14 +37,23 @@ class Movies extends Component {
     this.setState({ movies });
   };
 
-  handleDelete = (id) => {
-    const movies = this.state.movies.filter((movie) => movie._id !== id);
+  handleDelete = async (id) => {
+    const originalMovies = this.state.movies;
+    const movies = originalMovies.filter((movie) => movie._id !== id);
     var { currentPage, pageSize } = this.state;
     this.setState({ movies });
 
-    if (movies.length <= pageSize * (currentPage - 1)) {
-      currentPage = currentPage - 1;
-      this.setState({ currentPage });
+    try {
+      await deleteMovie(id);
+
+      if (movies.length <= pageSize * (currentPage - 1)) {
+        currentPage = currentPage - 1;
+        this.setState({ currentPage });
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.status === 404)
+        toast.error("This movie is already deleted");
+      this.setState({ movies: originalMovies });
     }
   };
 
@@ -88,9 +100,9 @@ class Movies extends Component {
     nav("/movies/new");
   };
 
-  handleSearch = ({ currentTarget: input }) => {
-    const movies = getMovies();
-    this.setState({ currentGenre: "All" });
+  handleSearch = async ({ currentTarget: input }) => {
+    const movies = await getMovies();
+    this.setState({ currentGenre: "All Genres" });
 
     const filteredMovies = Object.values(movies).filter((movie) =>
       movie.title.toLowerCase().includes(input.value.toLowerCase())
@@ -123,7 +135,7 @@ class Movies extends Component {
         {/* </nav> */}
 
         <div className="row">
-          <div className="col-3">
+          <div className="col-2">
             <Genre
               allGenre={this.state.genres}
               currentGenre={currentGenre}
@@ -137,7 +149,7 @@ class Movies extends Component {
               {" "}
               New Movie +
             </button>
-
+            <ToastContainer />
             <div className="input-group">
               <input
                 type="text"

@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import Form from "./common/form";
 import Joi from "joi-browser";
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../services/userService";
+import Form from "./common/form";
 
 class RegisterForm extends Form {
   state = {
@@ -13,9 +14,19 @@ class RegisterForm extends Form {
     password: Joi.string().min(5).required().label("Password"),
     name: Joi.string().required().label("Name"),
   };
-
-  doSubmit = () => {
-    console.log("Registered");
+  doSubmit = async (nav) => {
+    try {
+      const response = await registerUser(this.state.data);
+      localStorage.setItem("token", response.headers["x-auth-token"]);
+      // nav("/movies");
+      window.location = "/";
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const errors = { ...this.state.errors };
+        errors.username = ex.response.data;
+        this.setState({ errors });
+      }
+    }
   };
 
   render() {
@@ -36,4 +47,7 @@ class RegisterForm extends Form {
   }
 }
 
-export default RegisterForm;
+export default function RegisterFormRouter() {
+  const nav = useNavigate();
+  return <RegisterForm nav={nav}></RegisterForm>;
+}

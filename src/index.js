@@ -11,21 +11,27 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import MoviesFormRouter from "./components/MoviesForm";
-import LoginForm from "./components/LoginForm";
-import RegisterForm from "./components/RegisterForm";
+import RegisterFormRouter from "./components/RegisterForm";
+import LoginFormRouter from "./components/LoginForm";
+import jwt_decode from "jwt-decode";
+
+try {
+  const jwt = localStorage.getItem("token");
+  var user = jwt_decode(jwt);
+} catch (ex) {}
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="container">
       <BrowserRouter>
-        <Navbar />
+        <Navbar user={user} />
         {/* <Movies /> */}
         <Routes>
           <Route path="/movies" element={<MovieswithRouter />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/rentals" element={<Rentals />} />
-          <Route path="/register" element={<RegisterForm />} />
-          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegisterFormRouter />} />
+          <Route path="/login" element={<LoginFormRouter />} />
           <Route path="/movies/:id" element={<MoviesFormRouter />} />
           <Route path="/" element={<Navigate to="/movies" replace />} />
           <Route path="/not-found" element={<NotFound />} />

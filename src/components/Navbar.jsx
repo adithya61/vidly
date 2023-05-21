@@ -1,7 +1,8 @@
+import { block } from "joi-browser";
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" href="/">
@@ -29,12 +30,26 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink to="/rentals"> Rentals </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink to="/login"> Login </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/register"> Register </NavLink>
-          </li>
+          {props.user && (
+            <React.Fragment>
+              <li className="nav-item">
+                <NavLink to="/login"> {props.user["name"]} </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/register"> Logout </NavLink>
+              </li>
+            </React.Fragment>
+          )}
+          {!props.user && (
+            <React.Fragment>
+              <li className="nav-item">
+                <NavLink to="/login"> Login </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink to="/register"> Register </NavLink>
+              </li>
+            </React.Fragment>
+          )}
         </ul>
       </div>
     </nav>

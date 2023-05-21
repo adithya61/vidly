@@ -8,7 +8,7 @@ const Genre = (props) => {
     <ul className="list-group">
       {allGenre.map((genre) => (
         <li
-          key={genre[valueProperty]}
+          key={genre[valueProperty] || "All"}
           style={{ cursor: "pointer" }}
           className={
             genre[textProperty] === currentGenre
