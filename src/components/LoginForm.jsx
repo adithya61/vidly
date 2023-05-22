@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { loginUser } from "../services/authService";
-import { useNavigate } from "react-router-dom";
+import { getCurrentUser, loginUser } from "../services/authService";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 class LoginForm extends Form {
   state = {
@@ -21,12 +21,13 @@ class LoginForm extends Form {
   doSubmit = async (nav) => {
     // call server
     const { username, password } = this.state.data;
+    const { loc } = this.props;
+
     try {
-      const { data: jwt } = await loginUser(username, password);
-      localStorage.setItem("token", jwt);
-      console.log(jwt);
-      // nav("/movies");
-      window.location = "/";
+      await loginUser(username, password);
+      loc.state
+        ? (window.location = loc.state.from.pathname)
+        : (window.location = "/");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -38,6 +39,8 @@ class LoginForm extends Form {
   };
 
   render() {
+    if (getCurrentUser()) return <Navigate to="/" replace />;
+
     return (
       <div>
         <h1>Login</h1>
@@ -56,5 +59,6 @@ class LoginForm extends Form {
 
 export default function LoginFormRouter() {
   const nav = useNavigate();
-  return <LoginForm nav={nav}></LoginForm>;
+  const loc = useLocation();
+  return <LoginForm nav={nav} loc={loc}></LoginForm>;
 }

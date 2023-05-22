@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import Table from "./common/Table";
 import Like from "./common/Like";
 import { Link } from "react-router-dom";
+import { getCurrentUser } from "../services/authService";
 
 class MoviesTable extends Component {
   columns = [
     {
       path: "title",
       label: "Title",
-      // content is a function that takes movie as input and return <LInk> component and redirects to
+      // content is a key that maps to a function which takes movie as input and returns <LInk> component and redirects to
       // /movies/(movie_id) and return movie title in the <Link> component.
       content: (movie) => (
         <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
@@ -23,18 +24,29 @@ class MoviesTable extends Component {
         <Like liked={movie.liked} onClick={() => this.props.onLike(movie)} />
       ),
     },
-    {
-      key: "delete",
-      content: (movie) => (
-        <button
-          onClick={() => this.props.onDelete(movie._id)}
-          className="btn btn-danger btn-sm"
-        >
-          Delete
-        </button>
-      ),
-    },
   ];
+
+  deleteColumn = {
+    key: "delete",
+    content: (movie) => (
+      <button
+        onClick={() => this.props.onDelete(movie._id)}
+        className="btn btn-danger btn-sm"
+      >
+        Delete
+      </button>
+    ),
+  };
+
+  constructor() {
+    super();
+
+    const user = getCurrentUser();
+
+    if (user && user.isAdmin) {
+      this.columns.push(this.deleteColumn);
+    }
+  }
 
   render() {
     const { movies, sortColumn, onSort } = this.props;

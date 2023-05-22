@@ -2,6 +2,7 @@ import Joi from "joi-browser";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../services/userService";
 import Form from "./common/form";
+import { loginWithJwt } from "../services/authService";
 
 class RegisterForm extends Form {
   state = {
@@ -17,7 +18,7 @@ class RegisterForm extends Form {
   doSubmit = async (nav) => {
     try {
       const response = await registerUser(this.state.data);
-      localStorage.setItem("token", response.headers["x-auth-token"]);
+      loginWithJwt(response.headers["x-auth-token"]);
       // nav("/movies");
       window.location = "/";
     } catch (ex) {

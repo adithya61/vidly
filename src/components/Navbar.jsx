@@ -1,5 +1,4 @@
-import { block } from "joi-browser";
-import React, { Component } from "react";
+import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
 const Navbar = (props) => {
@@ -33,10 +32,10 @@ const Navbar = (props) => {
           {props.user && (
             <React.Fragment>
               <li className="nav-item">
-                <NavLink to="/login"> {props.user["name"]} </NavLink>
+                <NavLink to="/profile"> {props.user["name"]} </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/register"> Logout </NavLink>
+                <NavLink to="/logout"> Logout </NavLink>
               </li>
             </React.Fragment>
           )}

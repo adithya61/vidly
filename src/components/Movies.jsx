@@ -117,6 +117,9 @@ class Movies extends Component {
     const { currentPage, pageSize, sortColumn, currentGenre } = this.state;
 
     const { totalCount: length, filteredData: movies } = this.getPageData();
+
+    const { user } = this.props;
+
     // Becomes redundant after implementing search feature.
     // if (length === 0)
     //   return (
@@ -145,10 +148,12 @@ class Movies extends Component {
 
           {/* Next column Movies */}
           <div className="col">
-            <button className="btn btn-primary " onClick={this.addNewMovie}>
-              {" "}
-              New Movie +
-            </button>
+            {user && (
+              <button className="btn btn-primary " onClick={this.addNewMovie}>
+                {" "}
+                New Movie +
+              </button>
+            )}
             <ToastContainer />
             <div className="input-group">
               <input
@@ -180,8 +185,9 @@ class Movies extends Component {
   }
 }
 
-export default function MovieswithRouter() {
+export default function MovieswithRouter(props) {
   const nav = useNavigate();
+  const user = props.user;
 
-  return <Movies nav={nav} />;
+  return <Movies nav={nav} user={user} />;
 }

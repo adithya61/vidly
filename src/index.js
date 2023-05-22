@@ -1,24 +1,24 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import jwt_decode from "jwt-decode";
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import bootstrap from "bootstrap/dist/css/bootstrap.min.css";
-import MovieswithRouter from "./components/Movies";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
-import Rentals from "./components/Rentals";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Customers from "./components/Customers";
-import { Route, Routes, Navigate } from "react-router-dom";
+import LoginFormRouter from "./components/LoginForm";
+import Logout from "./components/Logout";
+import MovieswithRouter from "./components/Movies";
+import MoviesFormRouter from "./components/MoviesForm";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
-import MoviesFormRouter from "./components/MoviesForm";
+import Profile from "./components/Profile";
 import RegisterFormRouter from "./components/RegisterForm";
-import LoginFormRouter from "./components/LoginForm";
-import jwt_decode from "jwt-decode";
+import Rentals from "./components/Rentals";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { getCurrentUser } from "./services/authService";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
-try {
-  const jwt = localStorage.getItem("token");
-  var user = jwt_decode(jwt);
-} catch (ex) {}
+const user = getCurrentUser();
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,12 +27,17 @@ ReactDOM.render(
         <Navbar user={user} />
         {/* <Movies /> */}
         <Routes>
-          <Route path="/movies" element={<MovieswithRouter />} />
+          <Route path="/movies" element={<MovieswithRouter user={user} />} />
           <Route path="/customers" element={<Customers />} />
           <Route path="/rentals" element={<Rentals />} />
           <Route path="/register" element={<RegisterFormRouter />} />
           <Route path="/login" element={<LoginFormRouter />} />
-          <Route path="/movies/:id" element={<MoviesFormRouter />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/movies/:id"
+            element={<ProtectedRoute to="login" component={MoviesFormRouter} />}
+          />
           <Route path="/" element={<Navigate to="/movies" replace />} />
           <Route path="/not-found" element={<NotFound />} />
         </Routes>

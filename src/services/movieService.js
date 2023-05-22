@@ -46,10 +46,8 @@ async function saveMovie(movie) {
   if ("_id" in movie) {
     delete body._id;
 
-    console.log(body, "body with id");
     return http.put(apiEndPoint + "/movies/" + movie._id, body);
   }
-  console.log(body, "body with new");
   return await http.post(apiEndPoint + "/movies", body);
 }
 
