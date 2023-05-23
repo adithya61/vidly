@@ -119,15 +119,7 @@ class Movies extends Component {
     const { totalCount: length, filteredData: movies } = this.getPageData();
 
     const { user } = this.props;
-
-    // Becomes redundant after implementing search feature.
-    // if (length === 0)
-    //   return (
-    //     <div className="badge badge-pill bg-warning">
-    //       There are currently no movies in your list
-    //     </div>
-    //   );
-
+    
     return (
       <div className="container">
         {/* <nav className="navbar navbar-expand-lg navbar-light bg-light"> */}

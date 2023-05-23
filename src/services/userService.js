@@ -1,7 +1,7 @@
 import http from "./httpService";
 import config from "../config/config.json";
 
-const apiEndPoint = config.apiUrl + "/users";
+const apiEndPoint = "/users";
 
 // prettier-ignore
 export function registerUser(user) {
