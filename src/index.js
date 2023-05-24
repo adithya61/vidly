@@ -24,7 +24,7 @@ const user = getCurrentUser();
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="container">
+    <div className="container-fluid">
       <BrowserRouter>
         <Navbar user={user} />
         {/* <Movies /> */}

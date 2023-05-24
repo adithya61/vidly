@@ -119,9 +119,9 @@ class Movies extends Component {
     const { totalCount: length, filteredData: movies } = this.getPageData();
 
     const { user } = this.props;
-    
+
     return (
-      <div className="container">
+      <div className="container-fluid">
         {/* <nav className="navbar navbar-expand-lg navbar-light bg-light"> */}
         <p className="badge badge-pill bg-primary">
           {" "}
@@ -130,7 +130,7 @@ class Movies extends Component {
         {/* </nav> */}
 
         <div className="row">
-          <div className="col-2">
+          <div className="col-3">
             <Genre
               allGenre={this.state.genres}
               currentGenre={currentGenre}
@@ -139,7 +139,7 @@ class Movies extends Component {
           </div>
 
           {/* Next column Movies */}
-          <div className="col">
+          <div className="col-9">
             {user && (
               <button className="btn btn-primary " onClick={this.addNewMovie}>
                 {" "}
