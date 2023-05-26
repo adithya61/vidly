@@ -9,7 +9,7 @@ import Genre from "./common/Genre";
 import { filterGenre } from "../utils/filterGenre";
 import MoviesTable from "./moviesTable";
 import _ from "lodash";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -127,10 +127,16 @@ class Movies extends Component {
           {" "}
           There are currently {length} movies listed.{" "}
         </p>
+        <br></br>
 
         <p className="badge badge-pill bg-secondary">
           The data may take some time to load as this website is deployed on a
-          free service. Check out my video version of the same project.
+          free service. Check out my{" "}
+          <a href="https://google.com" target="_blank">
+            {" "}
+            video{" "}
+          </a>{" "}
+          version of the same project.
         </p>
 
         {/* </nav> */}
