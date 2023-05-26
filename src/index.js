@@ -22,6 +22,8 @@ console.log("HERE", process.env.REACT_APP_NAME);
 
 const user = getCurrentUser();
 
+document.title = "vidly";
+
 ReactDOM.render(
   <React.StrictMode>
     <div className="container-fluid">
