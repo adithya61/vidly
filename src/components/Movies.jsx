@@ -127,6 +127,12 @@ class Movies extends Component {
           {" "}
           There are currently {length} movies listed.{" "}
         </p>
+
+        <p className="badge badge-pill bg-secondary">
+          The data may take some time to load as this website is deployed on a
+          free service. Check out my video version of the same project.
+        </p>
+
         {/* </nav> */}
 
         <div className="row">
