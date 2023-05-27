@@ -18,8 +18,6 @@ import reportWebVitals from "./reportWebVitals";
 import { getCurrentUser } from "./services/authService";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 
-console.log("HERE", process.env.REACT_APP_NAME);
-
 const user = getCurrentUser();
 
 document.title = "vidly";

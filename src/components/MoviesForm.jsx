@@ -53,8 +53,12 @@ class MoviesForm extends Form {
   };
 
   doSubmit = async (nav) => {
-    await saveMovie(this.state.data);
-    nav("/movies");
+    try {
+      await saveMovie(this.state.data);
+      nav("/movies");
+    } catch (ex) {
+        console.log(ex.response.data);
+    }
   };
 
   render() {

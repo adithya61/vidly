@@ -1,5 +1,4 @@
 import http from "./httpService";
-import config from "../config/config.json";
 
 async function getMovies() {
   const { data: movies } = await http.get("/movies");
@@ -44,7 +43,7 @@ async function saveMovie(movie) {
   if ("_id" in movie) {
     delete body._id;
 
-    return http.put("/movies/" + movie._id, body);
+    return await http.put("/movies/" + movie._id, body);
   }
   return await http.post("/movies", body);
 }

@@ -36,3 +36,8 @@ table {
   border: 1px solid black;
   table-layout: fixed;
 }
+.video {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: none;
+  }
