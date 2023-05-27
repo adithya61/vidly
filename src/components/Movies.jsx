@@ -26,7 +26,7 @@ class Movies extends Component {
   async componentDidMount() {
     const genres = [{ name: "All Genres" }, ...(await getGenres())];
 
-    this.setState({ movies: await getMovies(), genres });
+    this.setState({ movies: await getMoƒvies(), genres });
   }
 
   handleLike = (movie) => {
@@ -132,7 +132,11 @@ class Movies extends Component {
         <p className="badge badge-pill bg-secondary">
           The data may take some time to load as this website is deployed on a
           free service. Check out my{" "}
-          <a className="video" href="https://google.com" target="_blank">
+          <a
+            className="video"
+            href="https://youtu.be/AJsV4LWzBRg"
+            target="_blank"
+          >
             {" "}
             video{" "}
           </a>{" "}
