@@ -26,7 +26,7 @@ class Movies extends Component {
   async componentDidMount() {
     const genres = [{ name: "All Genres" }, ...(await getGenres())];
 
-    this.setState({ movies: await getMoƒvies(), genres });
+    this.setState({ movies: await getMovies(), genres });
   }
 
   handleLike = (movie) => {
