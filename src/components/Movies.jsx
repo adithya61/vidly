@@ -129,7 +129,7 @@ class Movies extends Component {
         </p>
         <br></br>
 
-        <p className="badge badge-pill bg-secondary">
+        <h4 className="info">
           The data may take some time to load as this website is deployed on a
           free service. Check out my{" "}
           <a
@@ -141,7 +141,7 @@ class Movies extends Component {
             video{" "}
           </a>{" "}
           version of the same project.
-        </p>
+        </h4>
 
         {/* </nav> */}
 
