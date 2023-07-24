@@ -5,14 +5,14 @@ import { paginate } from "../utils/paginate";
 const Navbar = (props) => {
   return (
     <nav className="navigation">
-      <div className="holder" id="navbarNav">
+      <li className="">
+        <a className=" link navbar-brand" href="/">
+          Vidly
+        </a>
+      </li>
+      <div className="hold" id="navbarNav">
         <ul className="bar">
           <li className="nav-item">
-            <a className="navbar-brand" href="/" style={{ color: "#fff" }}>
-              Vidly
-            </a>
-          </li>
-          <li className="nav-item active">
             <NavLink className={"link"} to="/movies">
               {" "}
               Movies{" "}

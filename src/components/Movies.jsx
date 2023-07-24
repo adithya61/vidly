@@ -121,9 +121,9 @@ class Movies extends Component {
     const { user } = this.props;
 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid mov">
         {/* <nav className="navbar navbar-expand-lg navbar-light bg-light"> */}
-        <p className="badge badge-pill bg-primary">
+        <p className="badge badge-pill">
           {" "}
           There are currently {length} movies listed.{" "}
         </p>
