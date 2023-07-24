@@ -24,9 +24,143 @@ class Movies extends Component {
   };
 
   async componentDidMount() {
-    const genres = [{ name: "All Genres" }, ...(await getGenres())];
+    // const genres = [{ name: "All Genres" }, ...(await getGenres())];
 
-    this.setState({ movies: await getMovies(), genres });
+    const genres = [
+      {
+        _id: "646cd41bc6c4cf78dc0d1ad3",
+        name: "Action",
+      },
+      {
+        _id: "646cd41ac6c4cf78dc0d1aca",
+        name: "Comedy",
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1adc",
+        name: "Romance",
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ae5",
+        name: "Thriller",
+      },
+    ];
+
+    // this.setState({ movies: await getMovies(), genres });
+
+    const movies = [
+      {
+        _id: "646cd41bc6c4cf78dc0d1ace",
+        title: "The Hangover",
+        numberInStock: 10,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41ac6c4cf78dc0d1aca",
+          name: "Comedy",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ad0",
+        title: "Wedding Crashers",
+        numberInStock: 15,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41ac6c4cf78dc0d1aca",
+          name: "Comedy",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ad5",
+        title: "Die Hard",
+        numberInStock: 5,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1ad3",
+          name: "Action",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ad7",
+        title: "Terminator",
+        numberInStock: 10,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1ad3",
+          name: "Action",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ad9",
+        title: "The Avengers",
+        numberInStock: 15,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1ad3",
+          name: "Action",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ade",
+        title: "The Notebook",
+        numberInStock: 5,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1adc",
+          name: "Romance",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ae0",
+        title: "When Harry Met Sally",
+        numberInStock: 10,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1adc",
+          name: "Romance",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ae2",
+        title: "Pretty Woman",
+        numberInStock: 15,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1adc",
+          name: "Romance",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ae7",
+        title: "The Sixth Sense",
+        numberInStock: 5,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1ae5",
+          name: "Thriller",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1ae9",
+        title: "Gone Girl",
+        numberInStock: 10,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1ae5",
+          name: "Thriller",
+        },
+      },
+      {
+        _id: "646cd41bc6c4cf78dc0d1aeb",
+        title: "The Others",
+        numberInStock: 15,
+        dailyRentalRate: 2,
+        genre: {
+          _id: "646cd41bc6c4cf78dc0d1ae5",
+          name: "Thriller",
+        },
+      },
+    ];
+
+    this.setState({ movies, genres });
   }
 
   handleLike = (movie) => {

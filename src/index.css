@@ -109,6 +109,6 @@ li {
   color: #ffffff;
 }
 
-.active {
+.live {
   background-color: var(--var--bg-color);
 }
