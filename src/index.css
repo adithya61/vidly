@@ -108,12 +108,3 @@ li {
   font-size: 1.5rem;
   color: #ffffff;
 }
-
-.live {
-  background-color: var(--var--bg-color);
-}
-
-a .list-group-item .live {
-  color: var(--hover-text);
-}
-

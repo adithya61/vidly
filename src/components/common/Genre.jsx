@@ -12,7 +12,7 @@ const Genre = (props) => {
           style={{ cursor: "pointer" }}
           className={
             genre[textProperty] === currentGenre
-              ? "list-group-item live"
+              ? "list-group-item active"
               : "list-group-item"
           }
           onClick={() => onGenreChange(genre[textProperty])}
