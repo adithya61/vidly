@@ -129,20 +129,6 @@ class Movies extends Component {
         </p>
         <br></br>
 
-        <h4 className="info">
-          The data may take some time to load as this website is deployed on a
-          free service. Check out my{" "}
-          <a
-            className="video"
-            href="https://youtu.be/AJsV4LWzBRg"
-            target="_blank"
-          >
-            {" "}
-            video{" "}
-          </a>{" "}
-          version of the same project.
-        </h4>
-
         {/* </nav> */}
 
         <div className="row">
