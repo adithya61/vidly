@@ -32,7 +32,7 @@ class RegisterForm extends Form {
 
   render() {
     return (
-      <div>
+      <div className="registering">
         <h1>Register</h1>
         <div className="row">
           <form onSubmit={this.handleSubmit}>

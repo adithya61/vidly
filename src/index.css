@@ -108,3 +108,7 @@ li {
   font-size: 1.5rem;
   color: #ffffff;
 }
+
+.logging, .registering{
+    margin: 2rem;
+}

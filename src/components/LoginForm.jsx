@@ -42,7 +42,7 @@ class LoginForm extends Form {
     if (getCurrentUser()) return <Navigate to="/" replace />;
 
     return (
-      <div>
+      <div className="logging">
         <h1>Login</h1>
         <div className="row">
           <form onSubmit={this.handleSubmit}>
