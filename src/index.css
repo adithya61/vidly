@@ -98,8 +98,8 @@ li {
   padding-bottom: 1rem;
 }
 .navbar-brand {
-  color: white;
-  font-weight: 300;
+  color: var(--hover-text);
+  font-weight: 500;
   font-size: 2rem;
 }
 

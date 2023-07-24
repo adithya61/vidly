@@ -17,7 +17,7 @@ const Genre = (props) => {
           }
           onClick={() => onGenreChange(genre[textProperty])}
         >
-          <a>{genre[textProperty]}</a>
+          <a className="link">{genre[textProperty]}</a>
         </li>
       ))}
     </ul>
