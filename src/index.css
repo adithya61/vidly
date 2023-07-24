@@ -112,3 +112,8 @@ li {
 .live {
   background-color: var(--var--bg-color);
 }
+
+a .list-group-item .live {
+  color: var(--hover-text);
+}
+
