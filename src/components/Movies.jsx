@@ -124,10 +124,12 @@ class Movies extends Component {
       <div className="container-fluid mov">
         <p className="badge badge-pill">
           {" "}
-          There are currently {length} movies listed.{" "}
+          There are currently {length} movies listed.
+        </p>{" "}
+        <br />
+        <p className="badge badge-pill">
+          Login :- Username: test@domain.com Password: 12345
         </p>
-        <br></br>
-
         <div className="row">
           <div className="col-3">
             <div>
@@ -166,7 +168,7 @@ class Movies extends Component {
             <div className="input-group">
               <input
                 type="text"
-                className="form-control"
+                className="form-control form-bg"
                 placeholder="Search"
                 aria-label="Search"
                 onChange={this.handleSearch}
