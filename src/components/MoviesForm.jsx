@@ -63,7 +63,7 @@ class MoviesForm extends Form {
 
   render() {
     return (
-      <div>
+      <div className="editForm">
         <h1> Movies Form </h1>
         {/* name, label, type */}
         <div className="row">

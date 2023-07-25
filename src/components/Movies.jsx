@@ -122,22 +122,36 @@ class Movies extends Component {
 
     return (
       <div className="container-fluid mov">
-        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light"> */}
         <p className="badge badge-pill">
           {" "}
           There are currently {length} movies listed.{" "}
         </p>
         <br></br>
 
-        {/* </nav> */}
-
         <div className="row">
           <div className="col-3">
-            <Genre
-              allGenre={this.state.genres}
-              currentGenre={currentGenre}
-              onGenreChange={this.handleGenreChange}
-            />
+            <div>
+              {this.state.genres.length > 0 ? (
+                <Genre
+                  allGenre={this.state.genres}
+                  currentGenre={currentGenre}
+                  onGenreChange={this.handleGenreChange}
+                />
+              ) : (
+                <div className="loading-genres">
+                  <div class="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Next column Movies */}
@@ -159,13 +173,30 @@ class Movies extends Component {
                 aria-describedby="basic-addon2"
               />
             </div>
-            <MoviesTable
-              movies={movies}
-              sortColumn={sortColumn}
-              onLike={this.handleLike}
-              onDelete={this.handleDelete}
-              onSort={this.handleSort}
-            />
+            <div className="loadContainer">
+              {movies.length > 0 ? (
+                <MoviesTable
+                  movies={movies}
+                  sortColumn={sortColumn}
+                  onLike={this.handleLike}
+                  onDelete={this.handleDelete}
+                  onSort={this.handleSort}
+                />
+              ) : (
+                <div className="loading">
+                  <div class="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+              )}
+            </div>
             <Pagination
               itemsCount={length}
               currentPage={currentPage}
