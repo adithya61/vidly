@@ -124,11 +124,10 @@ li {
 .loadContainer {
   display: flex;
   justify-content: center;
-  height: 30rem;
 }
 
 .loading {
-  align-self: center;
+  margin-top: 10rem;
 }
 
 /* * Loading  */

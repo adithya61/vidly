@@ -107,9 +107,15 @@ class Movies extends Component {
     const filteredMovies = Object.values(movies).filter((movie) =>
       movie.title.toLowerCase().includes(input.value.toLowerCase())
     );
+    this.setState({ currentPage: 1 });
+
+    if (filteredMovies.length == 0) {
+      const searchedMovies = { placeholder: "" };
+      this.setState({ movies: searchedMovies });
+      return;
+    }
 
     this.setState({ movies: filteredMovies });
-    this.setState({ currentPage: 1 });
   };
 
   // Render method
