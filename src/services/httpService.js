@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-const config = require("config");
+import config from "../config/custom-environment-variables.json";
 
 axios.defaults.baseURL = config.get("KEY") + "/api";
 
