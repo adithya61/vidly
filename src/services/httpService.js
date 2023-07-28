@@ -1,8 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-import config from "../config/config.json";
 
-axios.defaults.baseURL = config.KEY + "/api";
+axios.defaults.baseURL = config.get("KEY") + "/api";
 
 axios.interceptors.response.use(null, (error) => {
   const expectedError =
