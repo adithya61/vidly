@@ -251,7 +251,6 @@ li {
 @media only screen and (min-width: 0px) {
   .link {
     font-size: 1rem;
-    background-color: black;
   }
   .navbar-brand {
     font-size: 1.2rem;
@@ -268,7 +267,6 @@ li {
 @media only screen and (min-width: 400px) {
   .link {
     font-size: 1.2rem;
-    background-color: black;
   }
   .navbar-brand {
     font-size: 1.4rem;
@@ -285,7 +283,6 @@ li {
 @media only screen and (min-width: 768px) {
   .link {
     font-size: 1.4rem;
-    background-color: green;
   }
   .navbar-brand {
     font-size: 1.6rem;
@@ -303,7 +300,6 @@ li {
 @media only screen and (min-width: 1200px) {
   .link {
     font-size: 1.6rem;
-    background-color: tomato;
   }
   .navbar-brand {
     font-size: 1.8rem;
