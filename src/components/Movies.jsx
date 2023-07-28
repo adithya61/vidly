@@ -137,7 +137,7 @@ class Movies extends Component {
           Login :- Username: test@domain.com Password: 12345
         </p>
         <div className="row">
-          <div className="col-3">
+          <div className="mx-auto col-sm-11 col-md-3">
             <div>
               {this.state.genres.length > 0 ? (
                 <Genre
@@ -163,7 +163,7 @@ class Movies extends Component {
           </div>
 
           {/* Next column Movies */}
-          <div className="col-9">
+          <div className="mx-auto col-sm-11 col-md-9">
             {user && (
               <button className="btn btn-primary " onClick={this.addNewMovie}>
                 {" "}

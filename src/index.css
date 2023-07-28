@@ -4,6 +4,10 @@
   --hover-text: rgb(116, 104, 104);
 }
 
+html {
+  font-size: 10px;
+}
+
 body {
   background-color: rgb(240, 241, 243);
   margin: 0;
@@ -13,6 +17,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 100vw;
+  font-size: 1.8rem;
 }
 
 .login {
@@ -66,7 +71,7 @@ li {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 400;
-  font-size: 1.3rem;
+  font-size: 0.1%vw;
 }
 
 .info {
@@ -106,7 +111,7 @@ li {
 
 .badge {
   background-color: #74c0fc;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   color: #ffffff;
 }
 
@@ -240,4 +245,74 @@ li {
 
 .form-bg {
   background-color: rgb(240, 241, 243);
+}
+
+/* * 0px and above */
+@media only screen and (min-width: 0px) {
+  .link {
+    font-size: 1rem;
+    background-color: black;
+  }
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  .badge {
+    font-size: 0.8rem;
+  }
+  body {
+    font-size: 0.8rem;
+  }
+}
+
+/* * 400px and above */
+@media only screen and (min-width: 400px) {
+  .link {
+    font-size: 1.2rem;
+    background-color: black;
+  }
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+  .badge {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+}
+
+/* * 768px and above */
+@media only screen and (min-width: 768px) {
+  .link {
+    font-size: 1.4rem;
+    background-color: green;
+  }
+  .navbar-brand {
+    font-size: 1.6rem;
+  }
+  .badge {
+    font-size: 1.4rem;
+  }
+
+  body {
+    font-size: 1.4rem;
+  }
+}
+
+/* * 1200px and above */
+@media only screen and (min-width: 1200px) {
+  .link {
+    font-size: 1.6rem;
+    background-color: tomato;
+  }
+  .navbar-brand {
+    font-size: 1.8rem;
+  }
+  .badge {
+    font-size: 1.6rem;
+  }
+
+  body {
+    font-size: 1.6rem;
+  }
 }
