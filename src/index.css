@@ -1,7 +1,7 @@
 :root {
-  --var--bg-color: rgb(116, 192, 252);
+  --var--bg-color: rgb(102, 0, 255);
   --text-color: #ffffff;
-  --hover-text: rgb(116, 104, 104);
+  --hover-text: rgb(233, 233, 238);
 }
 
 html {
@@ -110,7 +110,7 @@ li {
 }
 
 .badge {
-  background-color: #74c0fc;
+  background-color: #828edb;
   font-size: 1.8rem;
   color: #ffffff;
 }
@@ -250,49 +250,49 @@ li {
 /* * 0px and above */
 @media only screen and (min-width: 0px) {
   .link {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   .badge {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   body {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
   }
 }
 
 /* * 400px and above */
 @media only screen and (min-width: 400px) {
   .link {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   .navbar-brand {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   .badge {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   body {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
 /* * 768px and above */
 @media only screen and (min-width: 768px) {
   .link {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   .navbar-brand {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   .badge {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   body {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -302,13 +302,14 @@ li {
     font-size: 1.6rem;
   }
   .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
   }
   .badge {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   body {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
+
