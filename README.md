@@ -1,6 +1,6 @@
 
 
-Deployed Live Here: (https://vidly-react-project.netlify.app/)
+Deployed Live Here: [here](https://vidly-react-project.netlify.app/)
 
 In the project directory, you can run:
 
