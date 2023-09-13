@@ -2,6 +2,8 @@
 
 Deployed Live Here: [here](https://vidly-react-project.netlify.app/)
 
+Video Demo: [here](https://www.youtube.com/watch?v=AJsV4LWzBRg)
+
 In the project directory, you can run:
 
 ### `npm start`
