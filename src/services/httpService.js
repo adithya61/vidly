@@ -1,7 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-console.log(process.env);
 axios.defaults.baseURL = process.env.BACKEND_API_URL;
 // axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
