@@ -1,7 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-axios.defaults.baseURL = process.env.backend_api_url;
+console.log(process.env);
+axios.defaults.baseURL = process.env.BACKEND_API_URL;
 // axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 axios.interceptors.response.use(null, (error) => {
