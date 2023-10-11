@@ -1,7 +1,6 @@
 import Joi from "joi-browser";
 import React, { Component } from "react";
 import Input from "./input";
-import { getGenres } from "../../services/movieService";
 
 class Form extends Component {
   state = {
@@ -64,7 +63,7 @@ class Form extends Component {
 
   renderButton(label) {
     return (
-      <button disabled={this.validate()} className="btn btn-primary login">
+      <button disabled={this.validate()} className="btn btn-dark login">
         {label}
       </button>
     );
@@ -89,8 +88,8 @@ class Form extends Component {
       (genre) => genre.name !== this.state.data[name]
     );
     return (
-      <div>
-        <label htmlFor={name}>{label}</label>
+      <div className="dropdown">
+        <label style={{marginRight: '2rem'}}  htmlFor={name}>{label}</label>
         <select onChange={this.handleChange} name={name} id={label}>
           <option key="default" value={this.state.data[name]}>
             {this.state.data[name]}

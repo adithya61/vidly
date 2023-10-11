@@ -12,6 +12,7 @@ import _ from "lodash";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "./common/Loading";
 
 class Movies extends Component {
   state = {
@@ -146,18 +147,7 @@ class Movies extends Component {
                   onGenreChange={this.handleGenreChange}
                 />
               ) : (
-                <div className="loading-genres">
-                  <div class="lds-roller">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
+                <Loading />
               )}
             </div>
           </div>
@@ -165,7 +155,7 @@ class Movies extends Component {
           {/* Next column Movies */}
           <div className="mx-auto col-sm-11 col-md-9">
             {user && (
-              <button className="btn btn-primary " onClick={this.addNewMovie}>
+              <button className="btn btn-primary new-movie" onClick={this.addNewMovie}>
                 {" "}
                 New Movie +
               </button>
@@ -174,7 +164,7 @@ class Movies extends Component {
             <div className="input-group">
               <input
                 type="text"
-                className="form-control form-bg"
+                className="form-control form-bg input-field"
                 placeholder="Search"
                 aria-label="Search"
                 onChange={this.handleSearch}
@@ -191,18 +181,7 @@ class Movies extends Component {
                   onSort={this.handleSort}
                 />
               ) : (
-                <div className="loading">
-                  <div class="lds-roller">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                  </div>
-                </div>
+                <Loading />
               )}
             </div>
             <Pagination

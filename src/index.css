@@ -1,7 +1,9 @@
 :root {
-  --var--bg-color: rgb(102, 0, 255);
+  --var--bg-color: white;
+  --var--badge-background: grey;
   --text-color: #ffffff;
-  --hover-text: rgb(233, 233, 238);
+  --brand-color: black;
+  --hover-text: grey;
 }
 
 html {
@@ -22,6 +24,7 @@ body {
 
 .login {
   margin-top: 20px;
+  font-size: 2rem;
 }
 
 code {
@@ -54,7 +57,7 @@ table {
 }
 
 .navigation {
-  height: 3.5rem;
+  height: 6rem;
   background-color: var(--var--bg-color);
   display: flex;
   align-items: center;
@@ -70,8 +73,9 @@ li {
 .link {
   color: var(--text-color);
   text-decoration: none;
-  font-weight: 400;
-  font-size: 0.1%vw;
+  font-weight: 500;
+  font-size: 4rem;
+  font-family: Inter;
 }
 
 .info {
@@ -104,13 +108,17 @@ li {
   padding-bottom: 1rem;
 }
 .navbar-brand {
-  color: var(--text-color);
-  font-weight: 400;
-  font-size: 2rem;
+  color: var(--brand-color);
+  font-weight: 600;
+  font-family: Roboto;
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .badge {
-  background-color: #828edb;
+  background-color: var(--var--badge-background);
   font-size: 1.8rem;
   color: #ffffff;
 }
@@ -236,11 +244,11 @@ li {
   text-align: center;
 }
 
-/* Logo */
+/* * Logo */
 
 .vidly-brand {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .form-bg {
@@ -253,8 +261,12 @@ li {
     font-size: 1.3rem;
   }
   .navbar-brand {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
+  .brand-name {
+    margin-left: 5px;
+  }
+
   .badge {
     font-size: 1rem;
   }
@@ -269,7 +281,7 @@ li {
     font-size: 1.5rem;
   }
   .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .badge {
     font-size: 1.2rem;
@@ -285,7 +297,7 @@ li {
     font-size: 1.5rem;
   }
   .navbar-brand {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .badge {
     font-size: 1.3rem;
@@ -299,10 +311,10 @@ li {
 /* * 1200px and above */
 @media only screen and (min-width: 1200px) {
   .link {
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
   .navbar-brand {
-    font-size: 2.5rem;
+    font-size: 4rem;
   }
   .badge {
     font-size: 1.5rem;
@@ -313,3 +325,60 @@ li {
   }
 }
 
+/* * Link  */
+
+.link--table {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+/* * Button */
+
+.btn {
+  border-radius: 15%;
+}
+
+/* * pages */
+
+.pages {
+  color: black;
+  margin-right: 3rem;
+}
+
+/* * Other pages */
+
+.pages {
+  font-weight: 400;
+}
+
+.other-pages {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10rem;
+}
+
+/* * Input Field */
+
+.input-field {
+  height: 3.5rem;
+  font-size: 1.8rem;
+}
+
+/* * dropdown */
+
+.dropdown {
+  margin-bottom: 3rem;
+}
+
+/* * new movie */
+
+.new-movie {
+  font-size: 1.4rem;
+}
+
+/* * activ */
+
+.selected-item {
+  background-color: grey;
+}

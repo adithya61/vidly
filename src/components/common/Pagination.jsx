@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Pagination = (props) => {
   const { pageSize, itemsCount, onPageChange, currentPage } = props;
@@ -15,7 +15,8 @@ const Pagination = (props) => {
       <nav aria-label="Page navigation example">
         <ul className="pagination">
           {pages.map((page) => (
-            <li style={{cursor:'pointer'}}
+            <li
+              style={{ cursor: "pointer" }}
               key={page}
               className={
                 page === currentPage ? "page-item active" : "page-item"

@@ -12,7 +12,9 @@ class MoviesTable extends Component {
       // content is a key that maps to a function which takes movie as input and returns <LInk> component and redirects to
       // /movies/(movie_id) and return movie title in the <Link> component.
       content: (movie) => (
-        <Link to={`/movies/${movie._id}`}>{movie.title}</Link>
+        <Link className="link--table" to={`/movies/${movie._id}`}>
+          {movie.title}
+        </Link>
       ),
     },
     { path: "genre.name", label: "Genre" },
