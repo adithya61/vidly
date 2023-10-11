@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import jwt_decode from "jwt-decode";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
@@ -19,8 +18,6 @@ import { getCurrentUser } from "./services/authService";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 
 const user = getCurrentUser();
-
-document.title = "vidly";
 
 ReactDOM.render(
   <React.StrictMode>
